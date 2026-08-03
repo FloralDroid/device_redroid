@@ -25,6 +25,11 @@ $(call inherit-product, hardware/floral/display/display.mk)
 # Floral primary audio output HAL
 $(call inherit-product, hardware/floral/audio/audio.mk)
 
+# Floral vendor services are required by this product and declared through
+# the device VINTF manifest.
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    device/redroid/floral_framework_compatibility_matrix.xml
+
 # no kernel involved
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
