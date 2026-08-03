@@ -22,6 +22,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Floral physical display HAL
 $(call inherit-product, hardware/floral/display/display.mk)
 
+# Floral primary audio output HAL
+$(call inherit-product, hardware/floral/audio/audio.mk)
+
 # no kernel involved
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
@@ -99,17 +102,6 @@ endif
 DEVICE_MANIFEST_FILE += device/redroid/android.hardware.bluetooth@1.1.xml
 
 PRODUCT_PACKAGES += android.hardware.bluetooth@1.1-service.sim
-
-
-PRODUCT_SOONG_NAMESPACES += frameworks/av/services/audiopolicy/config
-# audio policy
-PRODUCT_PACKAGES += \
-    audio_policy_configuration.xml \
-    r_submix_audio_policy_configuration.xml \
-    audio_policy_volumes.xml \
-    default_volume_tables.xml \
-    primary_audio_policy_configuration.xml \
-    surround_sound_configuration_5_0.xml \
 
 
 PRODUCT_COPY_FILES += \
