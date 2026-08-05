@@ -26,3 +26,6 @@ BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 16777216
 
 DEVICE_MANIFEST_FILE += device/redroid/manifest.xml
 
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    hardware/floral/sensors/sepolicy/vendor \
+    packages/services/FloralDevice/sepolicy/vendor

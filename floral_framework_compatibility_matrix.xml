@@ -39,4 +39,12 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="false">
+        <name>floral.device.simulation</name>
+        <version>1</version>
+        <interface>
+            <name>ISimulationState</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>

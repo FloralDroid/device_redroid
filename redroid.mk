@@ -25,6 +25,9 @@ $(call inherit-product, hardware/floral/display/display.mk)
 # Floral primary audio output HAL
 $(call inherit-product, hardware/floral/audio/audio.mk)
 
+# Floral motion, environment sensor, and GNSS simulation HALs
+$(call inherit-product, hardware/floral/sensors/sensors.mk)
+
 # Floral vendor services are required by this product and declared through
 # the device VINTF manifest.
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
