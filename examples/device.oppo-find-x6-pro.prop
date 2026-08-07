@@ -1,0 +1,11 @@
+# Complete device identity example for OPPO Find X6 Pro (PGEM10).
+version=1
+brand=OPPO
+manufacturer=OPPO
+model=Find X6 Pro
+device=PGEM10
+product=PGEM10
+soc_manufacturer=Qualcomm
+soc_model=SM8550
+gpu_vendor=Qualcomm
+gpu_model=Adreno (TM) 740

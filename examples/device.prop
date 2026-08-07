@@ -1,0 +1,11 @@
+# Floral device identity profile. The complete file is accepted or rejected as one unit.
+version=1
+brand=Floral
+manufacturer=FloralDroid
+model=Floral F12
+device=floral_f12
+product=floral_f12
+soc_manufacturer=FloralDroid
+soc_model=Floral S12
+gpu_vendor=FloralDroid
+gpu_model=Floral GPU
