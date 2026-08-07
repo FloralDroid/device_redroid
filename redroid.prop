@@ -5,6 +5,4 @@ ro.cold_boot_done=true
 
 persist.sys.fuse=1
 
-ro.radio.noril=yes
-
 debug.sf.nobootanimation=1

@@ -47,4 +47,28 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="false">
+        <name>floral.device.power</name>
+        <version>1</version>
+        <interface>
+            <name>IPowerState</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="false">
+        <name>floral.device.radio</name>
+        <version>1</version>
+        <interface>
+            <name>IRadioState</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="false">
+        <name>floral.device.wifi</name>
+        <version>1</version>
+        <interface>
+            <name>IWifiState</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>

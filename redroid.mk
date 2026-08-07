@@ -25,8 +25,20 @@ $(call inherit-product, hardware/floral/display/display.mk)
 # Floral primary audio output HAL
 $(call inherit-product, hardware/floral/audio/audio.mk)
 
-# Floral motion, environment sensor, and GNSS simulation HALs
+# Floral motion and environment sensor simulation HAL
 $(call inherit-product, hardware/floral/sensors/sensors.mk)
+
+# Floral autonomous GNSS simulation HAL
+$(call inherit-product, hardware/floral/location/location.mk)
+
+# Floral coherent battery, power-mode, and thermal simulation HALs
+$(call inherit-product, hardware/floral/power/power.mk)
+
+# Floral cellular radio simulation and standard Android Radio HAL adapter
+$(call inherit-product, hardware/floral/radio/radio.mk)
+
+# Floral multi-AP Wi-Fi simulation backed by the existing Ethernet network
+$(call inherit-product, hardware/floral/wifi/wifi.mk)
 
 # Floral vendor services are required by this product and declared through
 # the device VINTF manifest.
@@ -68,10 +80,6 @@ PRODUCT_PACKAGES += \
     vulkan.pastel \
 
 
-# Phone App required
-PRODUCT_PACKAGES += \
-    rild
-
 # WiFi required by SystemUI
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
@@ -92,12 +100,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.graphics.composer@2.4-service \
-    android.hardware.health@2.1-service \
-    android.hardware.health@2.1-impl \
     android.hardware.keymaster@3.0-service \
-    android.hardware.keymaster@3.0-impl \
-    power.default \
-    android.hardware.power-service.example \
+    android.hardware.keymaster@3.0-impl
 
 
 ifneq ($(REDROID_DISABLE_OMX),true)
@@ -115,6 +119,7 @@ PRODUCT_PACKAGES += android.hardware.bluetooth@1.1-service.sim
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libeffects/data/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
+    frameworks/native/data/etc/android.hardware.faketouch.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.faketouch.xml \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute-0.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-1.xml \
