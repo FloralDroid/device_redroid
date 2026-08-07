@@ -5,7 +5,7 @@
 FloralDroid 在 Android 属性初始化期间只读取一次以下可选设备身份配置：
 
 ```text
-/mnt/vendor/floral_stream/device.prop
+/ipc/floral_stream/device.prop
 ```
 
 宿主可将仓库中的 [Floral 默认模板](../examples/device.prop)或

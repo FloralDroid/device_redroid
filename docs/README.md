@@ -6,7 +6,7 @@ FloralDroid reads the optional device identity profile below once during
 Android property initialization:
 
 ```text
-/mnt/vendor/floral_stream/device.prop
+/ipc/floral_stream/device.prop
 ```
 
 The host can copy either the [default Floral template](../examples/device.prop)
