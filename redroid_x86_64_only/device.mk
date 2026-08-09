@@ -3,7 +3,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.enable.native.bridge.exec=1 \
-    ro.dalvik.vm.isa.arm64=x86_64 \
-    ro.dalvik.vm.native.bridge=libnb.so \
+    ro.dalvik.vm.isa.arm64=x86_64
+
+$(call inherit-product, system/floral/nativebridge/nativebridge.mk)
 
 $(call inherit-product, device/redroid-prebuilts/prebuilts_x86.mk)
