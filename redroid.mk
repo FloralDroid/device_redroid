@@ -40,6 +40,9 @@ $(call inherit-product, hardware/floral/radio/radio.mk)
 # Floral multi-AP Wi-Fi simulation backed by the existing Ethernet network
 $(call inherit-product, hardware/floral/wifi/wifi.mk)
 
+# Floral capability-probed hardware video codecs
+$(call inherit-product, hardware/floral/codec/codec.mk)
+
 # Floral vendor services are required by this product and declared through
 # the device VINTF manifest.
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
