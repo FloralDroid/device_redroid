@@ -24,19 +24,34 @@ manufacturer=FloralDroid
 model=Floral F12
 device=floral_f12
 product=floral_f12
+board=floral_f12
 soc_manufacturer=FloralDroid
 soc_model=Floral S12
 gpu_vendor=FloralDroid
 gpu_model=Floral GPU
+build_id=SQ1D.220205.004
+build_display=Floral F12 Android 12
+version_release=12
+security_patch=2022-02-05
 ```
 
 所有字段都是必填项。出现未知字段、缺失字段、重复字段、空值、超长值或非法值时，
-整份文件都会被拒绝，并使用上面相同的内置 Floral 身份，绝不会应用半份配置。
+整份文件都会被拒绝，绝不会应用半份配置。没有有效配置时使用内置 Floral
+产品、SOC 和 GPU 身份，并保留镜像原有的 board 与构建版本属性。
 
 `brand`、`manufacturer`、`model`、`device` 和 `product` 提供 Android 对外产品
-身份。Android 使用这些身份和镜像真实的系统版本、构建 ID、构建类型及标签派生
-fingerprint。该文件不能替换系统版本、ABI、安全补丁、签名、board 或 hardware
-属性。
+身份。`board` 通过 `ro.product.board` 提供 `Build.BOARD`，但不会改变
+`ro.hardware`、`ro.board.platform`、HAL 选择或 VINTF 匹配。
+
+`build_id`、`build_display`、`version_release` 和 `security_patch` 分别提供公开的
+构建 ID、显示构建号、Android 版本字符串和安全补丁日期。`version_release` 同时设置
+`ro.build.version.release` 与 `ro.build.version.release_or_codename`。Android 使用
+配置的产品身份、版本和构建 ID，以及镜像真实的 incremental、构建类型和标签派生
+fingerprint。`build_display` 不参与 fingerprint。
+
+该文件不能替换 `SDK_INT`、ABI、VNDK、签名、bootloader、`ro.hardware` 或
+`ro.board.platform`。因此版本字符串可以用于一致的公开身份展示，但不会改变镜像
+实际提供的 Android API 和系统能力。
 
 `soc_manufacturer` 和 `soc_model` 通过 `ro.soc.manufacturer`、`ro.soc.model`
 提供 `Build.SOC_MANUFACTURER` 与 `Build.SOC_MODEL`。
