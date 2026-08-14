@@ -38,8 +38,10 @@ version_release=12
 security_patch=2022-02-05
 ```
 
-Every field is required. Unknown, missing, duplicated, empty, oversized, or
-invalid fields reject the complete file. A partial profile is never applied.
+Every field listed above is required. Missing, duplicated, empty, oversized,
+or invalid known fields reject the complete file. Unknown fields are ignored
+so other Floral components can extend the shared profile independently. A
+partial profile is never applied.
 Without a valid profile, the built-in Floral product, SOC, and GPU identity is
 used while the image's original board and build version properties are kept.
 

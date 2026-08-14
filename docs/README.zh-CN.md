@@ -35,9 +35,10 @@ version_release=12
 security_patch=2022-02-05
 ```
 
-所有字段都是必填项。出现未知字段、缺失字段、重复字段、空值、超长值或非法值时，
-整份文件都会被拒绝，绝不会应用半份配置。没有有效配置时使用内置 Floral
-产品、SOC 和 GPU 身份，并保留镜像原有的 board 与构建版本属性。
+上述字段都是必填项。缺失、重复、空值、超长值或非法的已知字段会使整份文件被
+拒绝，绝不会应用半份配置。未知字段会被忽略，其他 Floral 组件可以独立扩展这份
+共享配置。没有有效配置时使用内置 Floral 产品、SOC 和 GPU 身份，并保留镜像原有
+的 board 与构建版本属性。
 
 `brand`、`manufacturer`、`model`、`device` 和 `product` 提供 Android 对外产品
 身份。`board` 通过 `ro.product.board` 提供 `Build.BOARD`，但不会改变
