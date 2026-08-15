@@ -43,6 +43,10 @@ $(call inherit-product, hardware/floral/wifi/wifi.mk)
 # Floral capability-probed hardware video codecs
 $(call inherit-product, hardware/floral/codec/codec.mk)
 
+# Optional host Floral LXCFS views. The Android helper exits without changing
+# procfs or sysfs when the container launcher does not expose the host mount.
+$(call inherit-product, system/floral/lxcfs/lxcfs.mk)
+
 # Floral vendor services are required by this product and declared through
 # the device VINTF manifest.
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
