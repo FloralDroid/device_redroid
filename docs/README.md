@@ -74,9 +74,9 @@ image's real incremental version, build type, and tags. `build_display` is not
 part of the fingerprint.
 
 `kernel_release` and `kernel_version` are optional and supply the bionic
-`uname()` identity for translated NativeBridge ARM processes. Native x86
-processes and direct syscalls that bypass libc continue to expose the real
-kernel values.
+`uname()` identity for translated NativeBridge ARM processes in `hybrid` mode.
+`direct` mode, native x86 processes, and direct syscalls that bypass libc
+continue to expose the real kernel values.
 
 The file cannot replace `SDK_INT`, ABI, VNDK, signing, bootloader,
 `ro.hardware`, or `ro.board.platform`. The release string can therefore provide

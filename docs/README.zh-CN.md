@@ -65,9 +65,9 @@ hardware_revision=EVT1
 配置的产品身份、版本和构建 ID，以及镜像真实的 incremental、构建类型和标签派生
 fingerprint。`build_display` 不参与 fingerprint。
 
-`kernel_release` 和 `kernel_version` 是可选字段，用于 NativeBridge ARM 进程通过
-bionic `uname()` 读取内核身份。原生 x86 进程和绕过 libc 的直接系统调用仍看到
-真实内核值。
+`kernel_release` 和 `kernel_version` 是可选字段，用于选择 `hybrid` 的
+NativeBridge ARM 进程通过 bionic `uname()` 读取内核身份。`direct`、原生 x86
+进程和绕过 libc 的直接系统调用仍看到真实内核值。
 
 该文件不能替换 `SDK_INT`、ABI、VNDK、签名、bootloader、`ro.hardware` 或
 `ro.board.platform`。因此版本字符串可以用于一致的公开身份展示，但不会改变镜像
