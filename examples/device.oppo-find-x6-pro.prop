@@ -23,10 +23,3 @@ memory_frequency=4200MHz
 memory_channel=16-bit Quad channel
 serial=PGEM10FLORAL0001
 hardware_revision=EVT1
-
-# Floral LXCFS uses these fields when the shared profile is mounted.
-cpu_vendor=Qualcomm
-cpu_model=ARMv8 Processor rev 1 (v8l)
-cpu_features=fp,asimd,evtstrm,aes,pmull,sha1,sha2,crc32,atomics,fphp,asimdhp,cpuid,asimdrdm,lrcpc,dcpop,asimddp
-cpu_feature_view=sm8550
-cpu_cores=auto
