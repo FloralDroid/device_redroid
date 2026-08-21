@@ -17,6 +17,9 @@ BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 16777216
 
 DEVICE_MANIFEST_FILE += device/redroid/manifest.xml
 
+# Build Mesa from source instead of using device/redroid-prebuilts binaries
+BOARD_GPU_DRIVERS := swrast virgl radeonsi
+
 BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/floral/location/sepolicy/vendor \
     hardware/floral/power/sepolicy/vendor \

@@ -14,6 +14,9 @@
 
 PRODUCT_MANUFACTURER := redroid
 
+# Enable Mesa source build
+PRODUCT_SOONG_NAMESPACES += external/mesa3d
+
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 #PRODUCT_COMPRESSED_APEX := false
 
