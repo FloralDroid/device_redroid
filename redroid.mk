@@ -107,9 +107,8 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.drm@1.4-service-lazy.clearkey \
     android.hardware.gatekeeper@1.0-service.software \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.mapper@2.0-impl-2.1 \
+    android.hardware.graphics.allocator@4.0-service.minigbm \
+    android.hardware.graphics.mapper@4.0-impl.minigbm \
     android.hardware.graphics.composer@2.4-service \
     android.hardware.keymaster@3.0-service \
     android.hardware.keymaster@3.0-impl
