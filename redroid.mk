@@ -88,7 +88,7 @@ PRODUCT_PACKAGES += \
     libGLESv1_CM_angle \
     libGLESv2_angle \
     vulkan.pastel \
-    floral_msa_compat \
+    FloralOaid \
 
 
 # WiFi required by SystemUI
