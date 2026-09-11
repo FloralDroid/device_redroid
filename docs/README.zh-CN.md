@@ -64,8 +64,9 @@ thermal_skin_name=skin
 自己的 Floral 默认身份。
 
 `brand`、`manufacturer`、`model`、`device` 和 `product` 提供 Android 对外产品
-身份。`board` 通过 `ro.product.board` 提供 `Build.BOARD`，但不会改变
-`ro.hardware`、`ro.board.platform`、HAL 选择或 VINTF 匹配。
+身份。`board` 通过 `ro.product.board` 提供 `Build.BOARD`。`soc_model` 同时提供
+`ro.soc.model` 和公开的 `ro.hardware`/`Build.HARDWARE`；系统启动脚本、ueventd
+和 legacy HAL 仍使用 `ro.boot.hardware` 选择实际容器平台。
 
 `build_id`、`build_display`、`build_description`、`version_release` 和
 `security_patch` 分别提供公开的构建 ID、显示构建号、构建描述、Android 版本字符串
@@ -84,12 +85,13 @@ thermal_skin_name=skin
 本阶段未实现内核 UTS 隔离；原生 x86 进程和绕过 libc 的直接 `uname` syscall
 仍看到宿主内核值。
 
-该文件不能替换 `SDK_INT`、ABI、VNDK、签名、bootloader、`ro.hardware` 或
+该文件不能替换 `SDK_INT`、ABI、VNDK、签名、bootloader 或
 `ro.board.platform`。因此版本字符串可以用于一致的公开身份展示，但不会改变镜像
 实际提供的 Android API 和系统能力。
 
 `soc_manufacturer` 和 `soc_model` 通过 `ro.soc.manufacturer`、`ro.soc.model`
-提供 `Build.SOC_MANUFACTURER` 与 `Build.SOC_MODEL`。
+提供 `Build.SOC_MANUFACTURER` 与 `Build.SOC_MODEL`；`soc_model` 还提供上述公开
+硬件身份。
 
 `gpu_vendor` 和 `gpu_model` 仅用于显示。GLES 将它们报告为 `GL_VENDOR` 和
 `GL_RENDERER`，Vulkan 将 `gpu_model` 报告为 `deviceName`。它们不会选择渲染器、
@@ -107,5 +109,6 @@ thermal_skin_name=skin
 基线上按负载缓慢变化。`thermal_*_name` 只设置 Thermal HAL 的公开热区名称。
 
 蜂窝身份继续由 `radio.json` 管理，Wi-Fi AP 继续由 `wifi.json` 管理。显示尺寸继续
-由 `floral_width`、`floral_height`、`floral_fps` 和 `floral_dpi` 启动属性控制。
+由 `floral_width`、`floral_height`、`floral_fps` 和 `floral_dpi` 启动属性控制；
+`/sys/class/graphics/fb0/virtual_size` 和 `modes` 同步呈现这组实际容器显示配置。
 因此完整机型示例不包含 IMEI、手机号、SIM 或网络运营商字段。

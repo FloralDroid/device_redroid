@@ -69,8 +69,9 @@ image values and each HAL uses its Floral defaults.
 
 `brand`, `manufacturer`, `model`, `device`, and `product` supply Android's
 public product identity. `board` supplies `Build.BOARD` through
-`ro.product.board`, but does not change `ro.hardware`, `ro.board.platform`, HAL
-selection, or VINTF matching.
+`ro.product.board`. `soc_model` supplies both `ro.soc.model` and the public
+`ro.hardware`/`Build.HARDWARE`; boot scripts, ueventd, and legacy HAL loading
+continue to use `ro.boot.hardware` for the actual container platform.
 
 `build_id`, `build_display`, `build_description`, `version_release`, and
 `security_patch` supply the public build ID, display build number, optional
@@ -91,13 +92,14 @@ the existing NativeBridge compatibility path. Kernel UTS isolation is not
 implemented in this phase. Native x86 processes and direct `uname` syscalls
 continue to expose the host kernel values.
 
-The file cannot replace `SDK_INT`, ABI, VNDK, signing, bootloader,
-`ro.hardware`, or `ro.board.platform`. The release string can therefore provide
+The file cannot replace `SDK_INT`, ABI, VNDK, signing, bootloader, or
+`ro.board.platform`. The release string can therefore provide
 a coherent public identity without changing the Android APIs and system
 capabilities actually supplied by the image.
 
 `soc_manufacturer` and `soc_model` supply `Build.SOC_MANUFACTURER` and
-`Build.SOC_MODEL` through `ro.soc.manufacturer` and `ro.soc.model`.
+`Build.SOC_MODEL` through `ro.soc.manufacturer` and `ro.soc.model`;
+`soc_model` also supplies the public hardware identity described above.
 
 `gpu_vendor` and `gpu_model` are presentation strings only. GLES reports them
 as `GL_VENDOR` and `GL_RENDERER`; Vulkan reports `gpu_model` as `deviceName`.
@@ -120,6 +122,8 @@ GPU temperatures evolve gradually above it according to load.
 
 Radio identity remains in `radio.json`. Wi-Fi access points remain in
 `wifi.json`. Display geometry remains controlled by the `floral_width`,
-`floral_height`, `floral_fps`, and `floral_dpi` boot properties.
+`floral_height`, `floral_fps`, and `floral_dpi` boot properties;
+`/sys/class/graphics/fb0/virtual_size` and `modes` report the same effective
+container display configuration.
 The complete device example therefore does not contain IMEI, phone number,
 SIM, or carrier fields.
