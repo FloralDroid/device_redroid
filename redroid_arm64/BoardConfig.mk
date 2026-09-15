@@ -20,6 +20,10 @@ BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 16777216
 
 DEVICE_MANIFEST_FILE += device/redroid/manifest.xml
 
+# Build the Mesa drivers used by ARM servers and development boards.
+BOARD_GPU_DRIVERS := kmsro swrast virgl radeonsi nouveau freedreno panfrost v3d vc4
+BOARD_MESA3D_VULKAN_DRIVERS := swrast
+
 BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/floral/location/sepolicy/vendor \
     hardware/floral/power/sepolicy/vendor \

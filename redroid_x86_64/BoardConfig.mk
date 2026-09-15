@@ -28,6 +28,7 @@ DEVICE_MANIFEST_FILE += device/redroid/manifest.xml
 
 # Build Mesa from source instead of using device/redroid-prebuilts binaries
 BOARD_GPU_DRIVERS := swrast virgl radeonsi
+BOARD_MESA3D_VULKAN_DRIVERS := swrast
 
 BOARD_VENDOR_SEPOLICY_DIRS += \
     hardware/floral/location/sepolicy/vendor \

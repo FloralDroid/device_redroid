@@ -17,6 +17,14 @@ PRODUCT_MANUFACTURER := redroid
 # Enable Mesa source build
 PRODUCT_SOONG_NAMESPACES += external/mesa3d
 
+PRODUCT_PACKAGES += \
+    libgallium_dri \
+    libglapi \
+    libEGL_mesa \
+    libGLESv1_CM_mesa \
+    libGLESv2_mesa \
+    vulkan.lvp
+
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 #PRODUCT_COMPRESSED_APEX := false
 
